@@ -1,1 +1,15 @@
-name: Jira Integrationon:  pull_request:    types: [closed]    branches: [ main ]jobs:  update-jira:    runs-on: ubuntu-latest    steps:      - name: Login to Jira        uses: atlassian/gajira-login@v3        env:          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+name: Jira Integration
+on:  
+  pull_request:    
+    types: [closed]    
+    branches: [ main ]
+jobs:  
+  update-jira:   
+  runs-on: ubuntu-latest   
+  steps:      
+    - name: Login to Jira        
+      uses: atlassian/gajira-login@v3        
+      env:          
+      JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}          
+      JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}          
+      JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
